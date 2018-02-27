@@ -18,8 +18,7 @@ foreach ($animals as $name => $test) {
 shuffle($second);
 foreach($first as $key3 => $val){
     foreach ($val as $val2){
-        $arr[$key3][] = $val2 . " " . $second[$count2];
-        $count2 = $count2 + 1;
+        $arr[$key3][] = $val2 . " " . array_shift($second);
     }
 }
 foreach ($arr as $key4 => $value) {
