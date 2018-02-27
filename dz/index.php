@@ -10,8 +10,9 @@ $animals = array(
 foreach ($animals as $name => $test) {
     foreach ($test as $one) {
         $temp = explode(" ",$one);
-        If (count($temp) == 2) {$first[$name][] = $temp[0];}
-        If (count($temp) == 2) {$second[] = $temp[1];}   
+        If (count($temp) == 2) {
+             $first[$name][] = $temp[0];
+             $second[] = $temp[1];}   
     }
 }
 shuffle($second);
