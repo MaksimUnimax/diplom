@@ -24,8 +24,6 @@ foreach($first as $key3 => $val){
 foreach ($arr as $key4 => $value) {
 	echo "<p>";
 	echo "<strong>", $key4,"</strong>", "<br/>";
-	foreach ($value as  $value2) {
-		echo $value2, "<br/>";
-	}
-};
+	echo implode(", ",$value);
+    };
 ?>
