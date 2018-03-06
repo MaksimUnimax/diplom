@@ -1,4 +1,5 @@
 <?php 	
 
-$test = file_get_contents('http://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22');
-echo $test;
+$test = file_get_contents('http://api.openweathermap.org/data/2.5/weather?q=London&appid=ffbe66814f71916c07738ff15f6e694f');
+$test2 =json_decode($test, true);
+var_dump($test);

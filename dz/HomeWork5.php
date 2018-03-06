@@ -2,26 +2,28 @@
 $test = file_get_contents('test.json');
 
 $user = json_decode($test, 'true');
+var_dump($user);
 ?>
 <html>
 	<head></head>
 	<body>
 		<h2>Пользователь</h2>
-
+		<?php 
+			foreach ($user as $key => $value) : ?>
 		<table>
 			<tr>
-				<td>Имя <?=$user[0][firstName]?></td>
+				<td>Имя <?=$value ?></td>
 			</tr>
 			<tr>
-				<td>Фамилия <?=$user[1][lastName]?></td>
+				<td>Фамилия <?=$value ?></td>
 			</tr>
 			<tr>
-				<td>Адрес <?=$user[2][address][city]  . ' ' . $user[2][address][streetAddress] . ' ' . $user[2][address][postalCode] ?></td>
+				<td>Адрес <?=$value[0]  . ' ' . $value[1] . ' ' . $value[2] ?></td>
 			</tr>
 			<tr>
-				<td>Номер телефона <?=$user[3][phoneNumbers][0] . ', ' . $user[3][phoneNumbers][1]?></td>
+				<td>Номер телефона <?=$user[phoneNumbers][0] . ', ' . $user[phoneNumbers][1]?></td>
 			</tr>
+			<?php endforeach; ?>
 		</table>
-
 	</body>
 </html>
