@@ -12,7 +12,7 @@ var_dump($user);
 			foreach ($user as $key => $value) : 
 				foreach ($value as $value1) : ?>
 			<tr>
-				<td>Имя <?=$value ?></td>
+				<td>Имя <?=$value1 ?></td>
 			</tr>
 		<!-- 	<tr>
 				<td>Фамилия <?=$value ?></td>
