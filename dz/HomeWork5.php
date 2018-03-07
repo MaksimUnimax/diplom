@@ -10,20 +10,20 @@ var_dump($user);
 		<table>
 		<?php 
 			foreach ($user as $key => $value) : 
-				foreach ($value as $value1) : ?>
-			<tr>
-				<td>Имя <?=$value1 ?></td>
-			</tr>
-		<!-- 	<tr>
-				<td>Фамилия <?=$value ?></td>
-			</tr>
-			<tr>
-				<td>Адрес <?=$value[0]  . ' ' . $value[1] . ' ' . $value[2] ?></td>
-			</tr>
-			<tr>
-				<td>Номер телефона <?=$user[phoneNumbers][0] . ', ' . $user[phoneNumbers][1]?></td>
-			</tr> -->
-			<?php endforeach; ?>
+				foreach ($value as $key2 => $value1) : ?>
+					<tr>
+						<td>имя <?=$value[firstName] ?></td>
+					</tr>
+				<!-- 	<tr>
+						<td>Фамилия <?=$value ?></td>
+					</tr>
+					<tr>
+						<td>Адрес <?=$value[0]  . ' ' . $value[1] . ' ' . $value[2] ?></td>
+					</tr>
+					<tr>
+						<td>Номер телефона <?=$user[phoneNumbers][0] . ', ' . $user[phoneNumbers][1]?></td>
+					</tr> -->
+				 <?php endforeach; ?>
 			<?php endforeach; ?>
 
 		</table>
