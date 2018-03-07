@@ -1,20 +1,20 @@
 <?php
-$test = file_get_contents('test.json');
-
+$test = file_get_contents('test1.json');
 $user = json_decode($test, 'true');
 var_dump($user);
 ?>
 <html>
 	<head></head>
 	<body>
-		<h2>Пользователь</h2>
-		<?php 
-			foreach ($user as $key => $value) : ?>
+		<h2>Пользователь</h2>	
 		<table>
+		<?php 
+			foreach ($user as $key => $value) : 
+				foreach ($value as $value1) : ?>
 			<tr>
 				<td>Имя <?=$value ?></td>
 			</tr>
-			<tr>
+		<!-- 	<tr>
 				<td>Фамилия <?=$value ?></td>
 			</tr>
 			<tr>
@@ -22,8 +22,10 @@ var_dump($user);
 			</tr>
 			<tr>
 				<td>Номер телефона <?=$user[phoneNumbers][0] . ', ' . $user[phoneNumbers][1]?></td>
-			</tr>
+			</tr> -->
 			<?php endforeach; ?>
+			<?php endforeach; ?>
+
 		</table>
 	</body>
 </html>
