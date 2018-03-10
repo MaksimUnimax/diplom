@@ -3,8 +3,8 @@
 	//var_dump($_GET);
 	$content = file_get_contents('list.php');
 	$number = json_decode($content, 'true');
-	var_dump($number);
-	echo $number[0]["question"];
+	$true = $number[0]["answerthree"];
+	$chek = $_post['answer'][0];
 	$ques = $number[0]["question"];
 	$answ1 = $number[0]["answerone"];
 	$answ2 = $number[0]["answertwo"];
@@ -15,7 +15,7 @@
 			<select multiple name='answer'>
 				<option value='$answ1'>$answ1</option>
 				<option value='$answ2'>$answ2</option>
-				<option value='$answ3'>$answ3</option>
+				<option value='$true'>$answ3</option>
 			</select>
 			<input type='submit' value='Ответ' />
 		</form>	
@@ -31,13 +31,16 @@
 
 	<?php
 	if ($number[0]['number'] == $_GET['number']) {
-	echo $end;
+		echo $end;
 	}
-	if ($_post['$answ3']) {
-		echo 'true';
+	if ($_POST['answer'] == 'Array') {
+		echo 'Верно';
 	}
-	var_dump($_POST);
+			elseif (is_string($_POST['answer'])){
+			echo 'Неверно';
+		}
 	?> 
+	
 </html>
 
 

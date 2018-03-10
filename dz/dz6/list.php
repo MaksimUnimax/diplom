@@ -1,12 +1,12 @@
 [
 
 {
-	"question": "Сколько весит килограмм?",
-	"number": "1",
-	"answerone": "3кг",
-	"answertwo": "2кг",
+	"question": "Сколько лет составителю тестов?",
+	"number": "3",
+	"answerone": "1год",
+	"answertwo": "2года",
 	"answerthree": [
-		"1кг",
+		"30лет",
 		"true"
 	]
 
