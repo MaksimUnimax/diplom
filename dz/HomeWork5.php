@@ -9,21 +9,13 @@ var_dump($user);
 		<h2>Пользователь</h2>	
 		<table>
 		<?php 
-			foreach ($user as $key => $value) : 
-				foreach ($value as $key2 => $value1) : ?>
+			foreach ($user as $key => $value) :  ?>
 					<tr>
-						<td>имя <?=$value[firstName] ?></td>
+						<td>Имя <?=$value['firstName'] ?></td>
+						<td>Фамилия <?=$value['lastName'] ?></td>
+						<td>Адрес <?=$value['address']["city"] ?> . Улица <?=$value['address']["streetAddress"] ?> . Индекс <?=$value['address']["postalCode"] ?></td>
+						<td>Номер телефона <?=$value['phoneNumbers'][0]?> . <?=$value['phoneNumbers'][1]?></td>
 					</tr>
-				<!-- 	<tr>
-						<td>Фамилия <?=$value ?></td>
-					</tr>
-					<tr>
-						<td>Адрес <?=$value[0]  . ' ' . $value[1] . ' ' . $value[2] ?></td>
-					</tr>
-					<tr>
-						<td>Номер телефона <?=$user[phoneNumbers][0] . ', ' . $user[phoneNumbers][1]?></td>
-					</tr> -->
-				 <?php endforeach; ?>
 			<?php endforeach; ?>
 
 		</table>
