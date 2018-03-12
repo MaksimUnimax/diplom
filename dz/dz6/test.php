@@ -39,13 +39,13 @@
 		<input type="submit" value="Отправить" />
 	</form>
 
-	<?php
+<?php
 	if ($_POST['answer'] == 'Array') {
 		echo 'Верно';
 	}
-			elseif (is_string($_POST['answer'])){
+	elseif (is_string($_POST['answer'])){
 			echo 'Неверно';
-			}
-	?>
+	}
+?>
 	
 </html>

@@ -7,7 +7,6 @@
 	        move_uploaded_file($tmp_name, "$uploads_dir/$name");
 	    }
 	}
-	var_dump($_FILES);
 	?> 
 
 <html>
