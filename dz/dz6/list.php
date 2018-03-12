@@ -1,15 +1,7 @@
-[
-
-{
-	"question": "Сколько весит килограмм?",
-	"number": "1",
-	"answerone": "3кг",
-	"answertwo": "2кг",
-	"answerthree": [
-		"1кг",
-		"true"
-	]
-
+<?php
+$dir = 'tests';
+$list = scandir($dir);
+$i = 0;
+foreach ($list as $key => $value) {
+	echo ++$i . ' ' . $value . '<br/>';
 }
-
-]
