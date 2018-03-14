@@ -43,6 +43,7 @@
   if ($_GET["number"] > $filejs[0]["number"]){
               http_response_code(404);
               echo 'Ошибка 404' . '<br/>' . 'Тест не найден';
+              exit();
   }  
   
 
