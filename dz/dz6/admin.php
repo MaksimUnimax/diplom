@@ -4,9 +4,10 @@
 	    if ($error == UPLOAD_ERR_OK) {
 	        $tmp_name = $_FILES["test"]["tmp_name"];
 	        $name = basename($_FILES["test"]["name"]);
-	        move_uploaded_file($tmp_name, "$uploads_dir/$name");
+	        move_uploaded_file($tmp_name, "$uploads_dir/$name");	  
 	    }
 	}
+	http_response_code(302);
 	?> 
 
 <html>

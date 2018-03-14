@@ -14,11 +14,6 @@
     $fileadr = "$dir/$value";
     $filejs1 = file_get_contents("$fileadr");
     $filejs = json_decode($filejs1, 'true');
-       // foreach ($filejs[0] as $key => $numberjs) {
-        // if ($_GET["number"] != $filejs[0]["number"]){
-        //   http_response_code(404);
-        //   echo '123';
-        //  }
           if ($_GET["number"] == $filejs[0]["number"]) {
           $true = $filejs[0]["answerthree"];
           $ques = $filejs[0]["question"];
@@ -33,14 +28,19 @@
                   <option value='$answ2'>$answ2</option>
                   <option value='$true'>$answ3</option>
                 </select>
-                <input type='submit' value='Ответ' />
+                 <br/>
+                 <form action='test.php' method='Post'>
+                 <label> Введите имя
+                 <input type = 'text' name='login'>
+                 </label>
+                 <input type='submit' value='Отправить' />
               </form> 
             </div>";
            
           }
     } 
 }
-  if ($_GET["number"] > $filejs[0]["number"] or $_GET["number"]  == 0){
+  if ($_GET["number"] > $filejs[0]["number"]){
               http_response_code(404);
               echo 'Ошибка 404' . '<br/>' . 'Тест не найден';
   }  
