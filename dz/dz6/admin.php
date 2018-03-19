@@ -1,4 +1,10 @@
- <?php 
+<?php 
+ 	session_start();
+ 	 if(!$_SESSION['admin']){
+ 		header("HTTP/1.1 403");
+ 		exit();
+ 	}
+ 	
 	$uploads_dir = "tests";
 	foreach ($_FILES["test"] as $key => $error) {
 	    if ($error == UPLOAD_ERR_OK) {
@@ -7,7 +13,6 @@
 	        move_uploaded_file($tmp_name, "$uploads_dir/$name");	  
 	    }
 	}
-	http_response_code(302);
 	?> 
 
 <html>
@@ -16,4 +21,5 @@
 		<input type="file" name="test" />
 		<input type="submit" value="Отправить" />
 	</form>
+	<p><a href="test.php"> Перейдти к тестам</a></p>
 </html>

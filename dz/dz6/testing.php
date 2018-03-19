@@ -1,11 +1,9 @@
-
+<!Doctype html>
 <html>
-  <h2>Введите номер теста.</h2>
-  <form action="test.php" method="GET" >
-    <input type="text" name="number" />
-    <input type="submit" value="Отправить" />
-  </form>
-
+	<header>
+		<title>Test</title>
+	</header>
+	<body>
 <?php   
  $dir = 'tests';
  $list = scandir($dir);
@@ -53,6 +51,5 @@
       echo 'Неверно';
   }
 ?>
-  <p><a href="list.php">К списку тестов</a></p>
-  <p><a href="form.php">Выйти</a></p>
+	</body>
 </html>
