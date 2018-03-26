@@ -1,6 +1,10 @@
 <?php
-	
-	
+	//Суперкласс
+	class Product 
+	{
+
+	};
+
 	class Car
 	{
 		public $name;
@@ -21,6 +25,12 @@
 	$LADA = new Car;
 	$LADA -> carSet('LADA', 'white', 'auto');
 
+	//Суперкласс
+	class Stationery 
+	{
+
+	};
+
 	class Pen
 	{
 		private $color = 'blue';
@@ -37,6 +47,12 @@
 	$RedPen -> penColor('Red');
 	$GoldPen = new Pen;
 	echo ' ' . $GoldPen -> price = 1000000 . '<br/>';
+
+	//Суперкласс
+	class HomeAppliances 
+	{
+
+	};
 
 	class TV 
 	{
@@ -72,6 +88,12 @@
 	$LG = new TV;
 	$LG -> YourPrice("color", 60, 100);
 
+	//Суперкласс
+	class HomeWork 
+	{
+
+	};
+
 	class Answer {
 			private $Qwestion1;
 			private $Qwestion2;
@@ -104,6 +126,12 @@
 			</div>
 
 <?php 
+
+	//Суперкласс
+	class AllProduct 
+	{
+
+	};
 
 	class Product 
 	{
