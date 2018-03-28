@@ -1,6 +1,6 @@
 <?php
 	//Суперкласс
-	class Product 
+	class Products 
 	{
 
 	};
@@ -41,7 +41,7 @@
 			echo 'Второй класс' . ' ' . $color;
 		}
 
-	}
+	};
 
 	$RedPen = new Pen;
 	$RedPen -> penColor('Red');
@@ -81,7 +81,7 @@
 
 		}
 
-	}
+	};
 
 	$samsung = new TV;
 	$samsung -> YourPrice("black/white", 30, 10);
@@ -150,7 +150,7 @@
 			}
 		}
 
-	}
+	};
 
 ?>
 		<div>
