@@ -20,7 +20,6 @@ class Basket
 $session = new Basket;
 $session -> session = $_SESSION;
 $session -> Product();
-$session -> price = 1;
 // var_dump($_SESSION);
 var_dump($session);
 
