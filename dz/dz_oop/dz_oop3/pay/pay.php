@@ -2,11 +2,8 @@
 include('../basket/basket.php');
 class Pay extends Basket
 {	
-	public $product;
-    public $price;
 	public function Print(){
-		// $this -> price = $price;
-		// echo array_sum($price);
+		echo  {$this->price};
 	}
 }
 
