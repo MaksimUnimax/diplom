@@ -12,9 +12,9 @@ $sql = "INSERT INTO `tasks`( `description`, `is_done`) VALUES ('$about',0)";
 $sql1 = "SELECT * FROM `tasks`";
 $del = "DELETE * FROM `tasks` WHERE id like '$id'";
 $update = "UPDATE `tasks` SET is_done=1 where id like '$id'";
+$dataBase->exec($sql);
 var_dump($about);
 var_dump($_GET);
-$dataBase->exec($sql);
 
 ?>
 
@@ -55,11 +55,12 @@ $dataBase->exec($sql);
 				<th>Статус</th>
 				<th></th>
 			</tr>
-<?php 					if ($_GET['action']) {
-				    		$dataBase->exec($update);
-				    	}
-				    foreach($dataBase->query($sql1) as $row) {
+<?php 				
 
+					if ($_GET['action']) {
+				    	$dataBase->exec($update);
+				    }
+				    foreach($dataBase->query($sql1) as $row) {
 				 		echo "<tr>
 				 		 <td>$row[description]</td>
 				 		 <td>$row[date_added]</td>
