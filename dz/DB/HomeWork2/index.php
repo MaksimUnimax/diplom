@@ -55,11 +55,11 @@ $dataBase->exec($sql);
 				<th>Статус</th>
 				<th></th>
 			</tr>
-<?php 					
-				    foreach($dataBase->query($sql1) as $row) {
-				    	if ($_GET['action']) {
+<?php 					if ($_GET['action']) {
 				    		$dataBase->exec($update);
 				    	}
+				    foreach($dataBase->query($sql1) as $row) {
+
 				 		echo "<tr>
 				 		 <td>$row[description]</td>
 				 		 <td>$row[date_added]</td>
