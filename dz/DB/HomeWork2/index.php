@@ -61,10 +61,15 @@ var_dump($_GET);
 				    	$dataBase->exec($update);
 				    }
 				    foreach($dataBase->query($sql1) as $row) {
+				    	if($row['is_done'] == 1) {
+				    		$done = 'Выполнено';
+				    	}else {
+				    		$done = 'Не выполнено';
+				    	}
 				 		echo "<tr>
 				 		 <td>$row[description]</td>
 				 		 <td>$row[date_added]</td>
-				 		 <td>$row[is_done]</td>
+				 		 <td>$done</td>
 				 		 <td><a href=?id=$row[id]&action=1>Выполнить</a></td>
 				 		 </tr>";
 					}
