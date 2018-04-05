@@ -65,18 +65,16 @@ var_dump($_GET);
 				    		$done = 'Выполнено';
 				    	}else {
 				    		$done = 'Не выполнено';
-				    	}$once = $about;
-				    	if (isset($about) and ($about == $once)) {
-				 		echo "<tr>
+				    	}
+				    	 echo "<tr>
 				 		 <td>$row[description]</td>
 				 		 <td>$row[date_added]</td>
 				 		 <td>$done</td>
 				 		 <td><a href=?id=$row[id]&action=1>Выполнить</a></td>
 				 		 </tr>";
-				 		}
+				 		
 					} 
-					
-					echo $about;
+
 
 ?>					
 		</table>
