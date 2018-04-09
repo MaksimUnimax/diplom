@@ -12,20 +12,21 @@
     $autorQW = "SELECT * FROM `books` WHERE author like '%$autor%' ";
 if (isset($autor) and $autor !== "") {
     foreach($dataBase->query($autorQW) as $rowAut) {
- 		$autorArr[] = $rowAut;
+ 		$all['autor'][] = $rowAut;
      }
  };
  if (isset($name) and $name !== "") {
     foreach($dataBase->query($nameQw) as $rowName) {
- 		$nameArr[] = $rowName;
+ 		$all['name'][] = $rowName;
      }
  };
  if (isset($ISBN) and $ISBN !== "") {
     foreach($dataBase->query($IsbnQw) as $rowIs) {
- 		$isbnArr[] = $rowIs;
+ 		$all['ISBN'][] = $rowIs;
      }
  };
-
+ 	$count = array_unique($all);
+ 	var_dump($count);
 ?>
 <!Doctype html>
 <html>

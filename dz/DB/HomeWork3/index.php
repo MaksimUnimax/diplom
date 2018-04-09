@@ -10,16 +10,24 @@ $done = 'Не выполнено';
 $sell = "Отправить";
 $postName = "about";
 $dataBase = new PDO("mysql:host=localhost;dbname=$dbname", $login, $pass);
-$sql = "INSERT INTO `tasks`( `description`, `is_done`) VALUES ('$about',0)";
-$sql1 = "SELECT * FROM `tasks`";
-$del = "DELETE FROM `tasks` WHERE id like '$id'";
-$update = "UPDATE `tasks` SET is_done=1 where id like '$id'";
-$updAll = "UPDATE `tasks` SET description='$_POST[descrip]' where id like '$_SESSION[id]'";
-$updSel = "SELECT description FROM `tasks` where id like '$id'";
+$sql = "INSERT INTO `task`( `description`, `is_done`, `user_id`) VALUES ('$about',0,$_SESSION[userId])";
+$sql1 = "SELECT * FROM `task`";
+$del = "DELETE FROM `task` WHERE id like '$id'";
+$update = "UPDATE `task` SET is_done=1 where id like '$id'";
+$updAll = "UPDATE `task` SET description='$_POST[descrip]' where id like '$_SESSION[id]'";
+$updSel = "SELECT description FROM `task` where id like '$id'";
+$userIDSql = "SELECT id FROM `user` where login like '$_SESSION[name]' and password like $_SESSION[pass]";
+foreach($dataBase->query($userIDSql) as $row) {
+	$_SESSION['userId'] = $row['id'];
+}
 if (isset($about) and $about != "") {
 	$dataBase->exec($sql);
 	header("location: index.php");	
 }
+if (!isset($_SESSION['name'])) {
+	exit("<a href=registr.php>Войдите на сайт</a>");
+}
+
 ?>
 
 <!Doctype html>
@@ -33,7 +41,7 @@ if (isset($about) and $about != "") {
 	</style>
 </head>
 <body>
-	<h1>Список дел</h1>
+	<h1>Здравствуйте, <?=$_SESSION['name']?> Вот ваш список дел:</h1>
 	<div style="float: left">
 <?php
 		if ($_GET['action'] == 3) {
