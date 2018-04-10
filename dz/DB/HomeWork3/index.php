@@ -18,6 +18,11 @@ $updAll = "UPDATE `task` SET description='$_POST[descrip]' where id like '$_SESS
 $updSel = "SELECT description FROM `task` where id like '$id'";
 $userIDSql = "SELECT id FROM `user` where login like '$_SESSION[name]' and password like $_SESSION[pass]";
 $allUser =  "SELECT * FROM `user`";
+$userIdName = "SELECT login FROM user INNER JOIN task ON task.user_id=user.id";
+foreach($dataBase->query($userIdName) as $rowUser1) {
+	$allUserName1[]=$rowUser1;
+}
+//var_dump($allUserName1)	;
 foreach($dataBase->query($allUser) as $rowUser) {
 	$allUserName[]=$rowUser['name'];
 }
@@ -31,7 +36,7 @@ if (isset($about) and $about != "") {
 if (!isset($_SESSION['name'])) {
 	exit("<a href=registr.php>Войдите на сайт</a>");
 }
-var_dump($rowUser['name']);
+var_dump($allUserName1)
 ?>
 
 <!Doctype html>
