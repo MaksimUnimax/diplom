@@ -14,6 +14,7 @@ if ($_POST['register'] and isset($name) and $name != "" and isset($pass) and $pa
 		$namePassArr[]=$valueArr;
 		if ($valueArr['login'] == $name and $valueArr['password'] == $pass) {
 			$hello = "Такой пользователь уже существует в базе данных.";
+			$count = 1;
 		}
 	}
 	$dataBase->exec($AddNamePassSql);
@@ -22,6 +23,7 @@ if ($_POST['register'] and isset($name) and $name != "" and isset($pass) and $pa
 	//header("location: index.php");
 }elseif ($_POST['register']) {
 	$hello ="Ошибка регистрации. Введите все необхдоимые данные.";
+	header("location: registr.php");
 	}
 if ($_POST['sign_in']) {
 	foreach ($dataBase->query($namePassSql) as $valueArr) {
@@ -30,12 +32,11 @@ if ($_POST['sign_in']) {
 			$_SESSION['name'] = $name;
 			$_SESSION['pass'] = $pass;
 			header("location: index.php");
-		}elseif ($_POST['sign_in']) {
-			$hello ="Ошибка входа. Введите все необхдоимые данные.";
-			}
-
+		}
+	$hello ="Ошибка входа. Введите все необхдоимые данные.";
 	}
 }
+var_dump($valueArr['login']);
 ?>
 
 <!Doctype html>

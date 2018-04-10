@@ -17,6 +17,10 @@ $update = "UPDATE `task` SET is_done=1 where id like '$id'";
 $updAll = "UPDATE `task` SET description='$_POST[descrip]' where id like '$_SESSION[id]'";
 $updSel = "SELECT description FROM `task` where id like '$id'";
 $userIDSql = "SELECT id FROM `user` where login like '$_SESSION[name]' and password like $_SESSION[pass]";
+$allUser =  "SELECT * FROM `user`";
+foreach($dataBase->query($allUser) as $rowUser) {
+	$allUserName[]=$rowUser['name'];
+}
 foreach($dataBase->query($userIDSql) as $row) {
 	$_SESSION['userId'] = $row['id'];
 }
@@ -27,7 +31,7 @@ if (isset($about) and $about != "") {
 if (!isset($_SESSION['name'])) {
 	exit("<a href=registr.php>Войдите на сайт</a>");
 }
-
+var_dump($rowUser['name']);
 ?>
 
 <!Doctype html>
@@ -77,6 +81,9 @@ if (!isset($_SESSION['name'])) {
 				<th>Дата добавления</th>
 				<th>Статус</th>
 				<th></th>
+				<th>Ответственный</th>
+				<th>Автор</th>
+				<th>Закрепить задачу за пользователем</th>
 			</tr>
 <?php 				
 
@@ -101,6 +108,8 @@ if (!isset($_SESSION['name'])) {
 				 		 <td>$row[date_added]</td>
 				 		 <td>$done</td>
 				 		 <td><a href=?id=$row[id]&action=1>Выполнить</a> <a href=?id=$row[id]&action=2>Удалить</a> <a href=?id=$row[id]&action=3>Редактировать</a></td>
+				 		 <td>В процессе</td>
+				 		 <td>$_SESSION[name]</td>
 				 		 </tr>";				 		 				 		
 					}
 ?>
