@@ -4,17 +4,26 @@ $dbname = "HomeWork";
 $login = "root";
 $pass = "";
 $dataBase = new PDO("mysql:host=localhost;dbname=$dbname", $login, $pass);
-foreach($_GET as $key => $val );
-$newtable = "CREATE TABLE `new` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `assigned_user_id` int(11) DEFAULT NULL,
-  `description` text NOT NULL,
-  `is_done` tinyint(4) NOT NULL DEFAULT '0',
-  `date_added` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-$dataBase->exec($newtable);
+foreach($_POST as $key => $val ) {
+	$newTable = "CREATE TABLE `new123456` (
+    `$val` int(11) NOT NULL 
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+}
+    $dataBase->exec($newTable);
+foreach ($_POST as $keys => $value) {
+	$DataChange = "ALTER TABLE `new123456` ADD `$value` INT";
+	$dataBase->exec($DataChange);
+}
+// $newtable = "CREATE TABLE `new` (
+//   `id` int(11) NOT NULL AUTO_INCREMENT,
+//   `user_id` int(11) NOT NULL,
+//   `assigned_user_id` int(11) DEFAULT NULL,
+//   `description` text NOT NULL,
+//   `is_done` tinyint(4) NOT NULL DEFAULT '0',
+//   `date_added` datetime NOT NULL,
+//   PRIMARY KEY (`id`)
+// ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+// $dataBase->exec($newtable);
 
 
 if ($_GET['incr']){
@@ -49,7 +58,7 @@ $i=$_SESSION['get'];
 					<a href=<?="?disc=1"?>>Убрать колонку</a>
 				</th>
 			</tr>
-			<tr><form action="index.php">
+			<tr><form action="index.php" method="POST">
 					<?if ($_SESSION['get'] > 0) {
 						while ($c != $b) {
 						$c++;
@@ -58,10 +67,10 @@ $i=$_SESSION['get'];
 							  </td>";
 						}
 					}
-					var_dump($_GET);
+					var_dump($_POST);
 					?>
 					<td>
-						<input type="submit" name="all" value ="Создать">
+						<input type="submit" name="" value ="Создать">
 					</td>
 				</form>
 			</tr>
