@@ -20,9 +20,9 @@ $userIDSql = "SELECT id FROM `user` where login like '$_SESSION[name]' and passw
 $allUser =  "SELECT * FROM `user`";
 $userIdName = "SELECT login FROM user INNER JOIN task ON task.user_id=user.id";
 foreach($dataBase->query($userIdName) as $rowUser1) {
-	$allUserName1[]=$rowUser1;
+	$UserName[]=$rowUser1;
 }
-//var_dump($allUserName1)	;
+var_dump($_SESSION['pass'])	;
 foreach($dataBase->query($allUser) as $rowUser) {
 	$allUserName[]=$rowUser['name'];
 }
@@ -36,7 +36,7 @@ if (isset($about) and $about != "") {
 if (!isset($_SESSION['name'])) {
 	exit("<a href=registr.php>Войдите на сайт</a>");
 }
-var_dump($allUserName1)
+var_dump($UserName)
 ?>
 
 <!Doctype html>
@@ -114,7 +114,7 @@ var_dump($allUserName1)
 				 		 <td>$done</td>
 				 		 <td><a href=?id=$row[id]&action=1>Выполнить</a> <a href=?id=$row[id]&action=2>Удалить</a> <a href=?id=$row[id]&action=3>Редактировать</a></td>
 				 		 <td>В процессе</td>
-				 		 <td>$_SESSION[name]</td>
+				 		 <td>$UserName[login]</td>
 				 		 </tr>";				 		 				 		
 					}
 ?>

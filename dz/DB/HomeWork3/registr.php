@@ -3,8 +3,8 @@ session_start();
 $dbname = "HomeWork";
 $login = "root";
 $passSql = "";
-$name=$_POST['login'];
-$pass=$_POST['pass'];
+$name=$_POST["login"];
+$pass=$_POST["pass"];
 $hello = "Введите данные для регистрации или войдите, если уже регистрировались:";
 $dataBase = new PDO("mysql:host=localhost;dbname=$dbname", $login, $passSql);
 $AddNamePassSql="INSERT INTO `user`(`login`, `password`) VALUES ($name,$pass)";
@@ -20,7 +20,7 @@ if ($_POST['register'] and isset($name) and $name != "" and isset($pass) and $pa
 	$dataBase->exec($AddNamePassSql);
 	$_SESSION['name'] = $name;
 	$_SESSION['pass'] = $pass;
-	//header("location: index.php");
+	header("location: index.php");
 }elseif ($_POST['register']) {
 	$hello ="Ошибка регистрации. Введите все необхдоимые данные.";
 	header("location: registr.php");
