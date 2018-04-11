@@ -3,13 +3,26 @@ session_start();
 $dbname = "HomeWork";
 $login = "root";
 $pass = "";
-$dataBase = new PDO("mysql:host=localhost;dbname=$dbname", $login, $pass);
-foreach($_POST as $key => $val ) {
-	$newTable = "CREATE TABLE `new123456` (
-    `$val` int(11) NOT NULL 
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+
+if ($_GET['incr']){
+	$_SESSION['get']++;
+	header("location: index.php");
+}elseif ($_GET['disc'] && $_SESSION['get'] > 0) {
+	$_SESSION['get']--;
+	header("location: index.php");
 }
-    $dataBase->exec($newTable);
+$i=$_SESSION['get'];
+
+$dataBase = new PDO("mysql:host=localhost;dbname=$dbname", $login, $pass);
+	foreach($_POST as $key => $val ) {
+		$newTable = "CREATE TABLE `123cas1` (
+	    `$val` int(11) NOT NULL 
+	  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+	}
+  var_dump($_POST);
+  if(!empty($_POST)) { 
+   	$dataBase->exec($newTable);
+   }
 foreach ($_POST as $keys => $value) {
 	$DataChange = "ALTER TABLE `new123456` ADD `$value` INT";
 	$dataBase->exec($DataChange);
@@ -24,17 +37,6 @@ foreach ($_POST as $keys => $value) {
 //   PRIMARY KEY (`id`)
 // ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 // $dataBase->exec($newtable);
-
-
-if ($_GET['incr']){
-	$_SESSION['get']++;
-	header("location: index.php");
-}elseif ($_GET['disc'] && $_SESSION['get'] > 0) {
-	$_SESSION['get']--;
-	header("location: index.php");
-}
-$i=$_SESSION['get'];
-
 ?>
 
 <!Doctype html>
@@ -67,9 +69,9 @@ $i=$_SESSION['get'];
 							  </td>";
 						}
 					}
-					var_dump($_POST);
 					?>
 					<td>
+						<input type="text" name="name" placeholder="Название таблицы">
 						<input type="submit" name="" value ="Создать">
 					</td>
 				</form>
