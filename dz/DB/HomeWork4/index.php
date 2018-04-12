@@ -3,7 +3,7 @@ session_start();
 $dbname = "HomeWork";
 $login = "root";
 $pass = "";
-
+$dataBase = new PDO("mysql:host=localhost;dbname=$dbname", $login, $pass);
 if ($_GET['incr']){
 	$_SESSION['get']++;
 	header("location: index.php");
@@ -12,20 +12,22 @@ if ($_GET['incr']){
 	header("location: index.php");
 }
 $i=$_SESSION['get'];
-
-$dataBase = new PDO("mysql:host=localhost;dbname=$dbname", $login, $pass);
-	foreach($_POST as $key => $val ) {
-		$newTable = "CREATE TABLE `123cas1` (
-	    `$val` int(11) NOT NULL 
-	  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+foreach ($_POST as $keyArr => $valueArr) {
+	if (is_int($keyArr)) {
+		$tableArr[]=$valueArr;
 	}
-  var_dump($_POST);
-  if(!empty($_POST)) { 
+}
+$newTable = "CREATE TABLE `$_POST[name]` (
+			`$tableArr[0]` int(11) NOT NULL 
+			) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+if(!empty($_POST)) { 
    	$dataBase->exec($newTable);
    }
-foreach ($_POST as $keys => $value) {
-	$DataChange = "ALTER TABLE `new123456` ADD `$value` INT";
-	$dataBase->exec($DataChange);
+if(!empty($_POST)) {
+	foreach ($tableArr as $keys => $value) {
+		$DataChange = "ALTER TABLE `$_POST[name]` ADD `$value` INT";
+		$dataBase->exec($DataChange);
+	}
 }
 // $newtable = "CREATE TABLE `new` (
 //   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -78,6 +80,7 @@ foreach ($_POST as $keys => $value) {
 			</tr>
 			
 		</table>
+		<h2><a href="list.php">Список таблиц</a></h2>
 	</body>
 </html>
 
