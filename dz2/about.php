@@ -5,7 +5,23 @@ $age = 31;
 $adress = Chelyabinsk;
 $mail = "unymax2014@gmail.com";
 $about = "Little man in big world";
+
+$user = rand(0,100); 
+echo "$user <br/>";
+$numberOne = 1; 
+$numberTwo = 1; 
+while ($numberOne < $user) {
+	$numberThree = $numberOne;
+	$numberOne+=$numberTwo;
+	$numberTwo = $numberThree;
+};
+if ($numberOne > $user) {
+		echo "Задуманное число не входит в числовой ряд";
+	}elseif ($numberOne == $user) {
+		echo "Задуманное число входит в числовой ряд";
+};
 ?>
+
 
 <!DOCTYPE>
 <html>
