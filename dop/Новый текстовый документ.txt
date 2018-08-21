@@ -1,0 +1,26 @@
+array(1) 
+{ ["response"]=> array(1) 
+ { ["GeoObjectCollection"]=> array(2) 
+  { ["metaDataProperty"]=> array(1) 
+   { ["GeocoderResponseMetaData"]=> array(3) { ["request"]=> string(10) "питер" ["found"]=> string(1) "1" ["results"]=> string(2) "10" } } 
+ ["featureMember"]=> array(1) { [0]=> array(1) 
+  { ["GeoObject"]=> array(5) 
+   { ["metaDataProperty"]=> array(1) 
+    { ["GeocoderMetaData"]=> array(5) 
+     { ["kind"]=> string(8) "locality" ["text"]=> string(43) "Россия, Санкт-Петербург" ["precision"]=> string(5) "other" ["Address"]=> array(3) 
+      { ["country_code"]=> string(2) "RU" ["formatted"]=> string(29) "Санкт-Петербург" ["Components"]=> array(4) 
+       { [0]=> array(2) 
+        { ["kind"]=> string(7) "country" ["name"]=> string(12) "Россия" } [1]=> array(2) 
+         { ["kind"]=> string(8) "province" ["name"]=> string(63) "Северо-Западный федеральный округ" } 
+        [2]=> array(2) 
+         { ["kind"]=> string(8) "province" ["name"]=> string(29) "Санкт-Петербург" } 
+        [3]=> array(2) 
+         { ["kind"]=> string(8) "locality" ["name"]=> string(29) "Санкт-Петербург" } } } 
+      ["AddressDetails"]=> array(1) 
+       { ["Country"]=> array(4) 
+         { ["AddressLine"]=> string(29) "Санкт-Петербург" ["CountryNameCode"]=> string(2) "RU" ["CountryName"]=> string(12) "Россия" ["AdministrativeArea"]=> array(2) 
+          { ["AdministrativeAreaName"]=> string(29) "Санкт-Петербург" ["Locality"]=> array(1) { ["LocalityName"]=> string(29) "Санкт-Петербург" } } } } } }
+     ["description"]=> string(12) "Россия" ["name"]=> string(29) "Санкт-Петербург" 
+      ["boundedBy"]=> array(1) 
+      { ["Envelope"]=> array(2) { ["lowerCorner"]=> string(19) "30.042834 59.744311" ["upperCorner"]=> string(19) "30.568322 60.090935" } } 
+     ["Point"]=> array(1) { ["pos"]=> string(19) "30.315868 59.939095" } } } } } } } NULL 
