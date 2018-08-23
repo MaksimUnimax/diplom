@@ -1,5 +1,6 @@
 <?
 $date = date('Y-m-d');
+$sum = 0;
 if ($argc > 1) {
 	$file_csv = "money.csv";
 	$res = fopen($file_csv , "a+");
