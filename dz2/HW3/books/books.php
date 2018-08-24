@@ -8,8 +8,6 @@ $file_ad = "books.csv";
 $file = file_get_contents("https://www.googleapis.com/books/v1/volumes?q=$qwery_str");
 $files = json_decode($file, true);
 $res = fopen($file_ad, "w+");
-foreach ($files as $string) {
-    json_decode($string);
     switch (json_last_error()) {
         case JSON_ERROR_NONE:
             echo ' - Ошибок нет';
@@ -34,7 +32,6 @@ foreach ($files as $string) {
         break;
     }
     echo PHP_EOL;
-};
  foreach ($files["items"] as $key => $value) {
  	$id += 1;
  	$title = $value["volumeInfo"]["title"];
