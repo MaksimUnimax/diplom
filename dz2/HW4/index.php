@@ -15,33 +15,15 @@ $file = json_decode($file_js, true);
 			<?
 			foreach ($file as $key => $value) { 
 			?>
-				<tr>
-					<? 
-						echo "<td>" ."Имя". "</td>";
-						echo "<td>" . $value["firstName"] . "</td>";
-					?>
-				</tr>
-				<tr>
-					<? 
-						echo "<td>" ."Фамилия". "</td>";
-						echo "<td>" . $value["lastName"] . "</td>";
-					?>
-				</tr>
-				<tr>
-					<? 
-						echo "<td>" ."Адрес". "</td>";
-						echo "<td>" . $value["address"] . "</td>";
-					?>
-				</tr>
-				<tr>
-					<? 
-						echo "<td>" ."Телефон". "</td>";
-						echo "<td>" . $value["phoneNumber"] . "</td>";
-					?>
-				</tr>
+					<tr>
+						<td>Имя <?=$value['firstName'] ?></td>
+						<td>Фамилия <?=$value['lastName'] ?></td>
+						<td>Адрес <?=$value['address']?></td>
+						<td>Номер телефона <?=$value['phoneNumber']?></td>
+					</tr>
+			<?
+			}	
+			?>	
 		</table>
 	</body>
 </html>
-<?
-}
-?>
