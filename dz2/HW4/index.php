@@ -1,8 +1,8 @@
 <?
 
-$file_ad = "test1.json";
-$file_js = file_get_contents("$file_ad");
-$file = json_decode($file_js, true);
+$fileAd = "test1.json";
+$fileJs = file_get_contents("$fileAd");
+$file = json_decode($fileJs, true);
 ?>
 
 <!DOCTYPE html>
