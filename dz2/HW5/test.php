@@ -43,9 +43,9 @@ if (array_key_exists("NumbTest", $_GET)){
 						<input type=radio name=<?="$answer"?> value=<?="$NumbTest"?> >  <?="$qwest"?>  <br/>
 					<?
 					}
-					?>
+				?>
 					</fieldset>
-					<?
+				<?
 			}
 		}
 	}echo " <br/> <input type=submit value=Ответить> <br/> <input type=hidden name=chek value=$NumbTest > </form>";
