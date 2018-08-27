@@ -29,17 +29,23 @@ if (array_key_exists("NumbTest", $_GET)){
 			$file = json_decode($fileJs,true);
 			foreach ($file as $count => $test) {
 					$printCount = $test["Вот сюда надо написать Вопрос =>"];
-					echo "<p> $printCount </p>";
+					?>
+					<fieldset>
+					<legend><?="$printCount"?></legend>
+					<?
 					$test = array_slice($test, 1);
 					foreach ($test as $qwest => $answer) { 
 						 $answ = 1;
 						 if(is_array($answer)) {
 						 	$answ = 2;
 						 }
-						?>
+					?>
 						<input type=radio name=<?="$answer"?> value=<?="$NumbTest"?> >  <?="$qwest"?>  <br/>
 					<?
 					}
+					?>
+					</fieldset>
+					<?
 			}
 		}
 	}echo " <br/> <input type=submit value=Ответить> <br/> <input type=hidden name=chek value=$NumbTest > </form>";
