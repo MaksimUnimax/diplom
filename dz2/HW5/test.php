@@ -2,7 +2,6 @@
 $NumbTest = $_GET["NumbTest"];
 $dir = 'tests';
 $list = array_slice(scandir($dir), 2);
-var_dump($list);
 ?>
 
 <!DOCTYPE html>
@@ -16,16 +15,60 @@ var_dump($list);
 		<input type="text" name="NumbTest">
 		<input type="submit" value="Отправить">
 	</form>
+<?	
+if (array_key_exists("NumbTest", $_GET)){ 
+	$NumbTest = $_GET["NumbTest"];
+?>
+	<form action="test.php" method="GET">
 	<?
 	foreach ($list as $numb => $test) {
 	$number = $numb + 1;
-	if ($NumbTest == $number) {
-		$fileName = $list[$numb];
-		$fileJs = file_get_contents("tests/$fileName");
-		$file = json_decode($fileJs,true);
-		var_dump($file);
-	}
+		if ($NumbTest == $number) {
+			$fileName = $list[$numb];
+			$fileJs = file_get_contents("tests/$fileName");
+			$file = json_decode($fileJs,true);
+			foreach ($file as $count => $test) {
+					$printCount = $test["Вот сюда надо написать Вопрос =>"];
+					echo "<p> $printCount </p>";
+					$test = array_slice($test, 1);
+					foreach ($test as $qwest => $answer) { 
+						 $answ = 1;
+						 if(is_array($answer)) {
+						 	$answ = 2;
+						 }
+						?>
+						<input type=radio name=<?="$answer"?> value=<?="$NumbTest"?> >  <?="$qwest"?>  <br/>
+					<?
+					}
+			}
+		}
+	}echo " <br/> <input type=submit value=Ответить> <br/> <input type=hidden name=chek value=$NumbTest >";
 }
-	?>
+if (array_key_exists("chek", $_GET)){
+			foreach ($list as $numb => $test) {
+			$number = $numb + 1;
+			$fileName = $list[$numb];
+			$fileJs = file_get_contents("tests/$fileName");
+			$file = json_decode($fileJs,true);
+				foreach ($file as $count => $test) {
+					if($number == $_GET["chek"]) {
+						$countIf += 1;
+						$printCount = $test["Вот сюда надо написать Вопрос =>"];
+						foreach ($_GET as $key => $value) {
+							$countFor += 1;
+							if ($countIf == $countFor){
+								if ($key == "Array"){
+									echo "<p> $printCount (Верно)</p> ";
+								}else {
+									echo "<p> $printCount (Неверно)</p> ";
+								}
+							}
+						}$countFor = 0;
+					}
+				}$countIf = 0;
+			}		
+}
+?>
+	</form>
 </body>
 </html>
