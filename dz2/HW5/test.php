@@ -42,7 +42,7 @@ if (array_key_exists("NumbTest", $_GET)){
 					}
 			}
 		}
-	}echo " <br/> <input type=submit value=Ответить> <br/> <input type=hidden name=chek value=$NumbTest >";
+	}echo " <br/> <input type=submit value=Ответить> <br/> <input type=hidden name=chek value=$NumbTest > </form>";
 }
 if (array_key_exists("chek", $_GET)){
 			foreach ($list as $numb => $test) {
@@ -56,6 +56,7 @@ if (array_key_exists("chek", $_GET)){
 						$printCount = $test["Вот сюда надо написать Вопрос =>"];
 						foreach ($_GET as $key => $value) {
 							$countFor += 1;
+							array_push($_GET, "$countIf");
 							if ($countIf == $countFor){
 								if ($key == "Array"){
 									echo "<p> $printCount (Верно)</p> ";
@@ -69,6 +70,5 @@ if (array_key_exists("chek", $_GET)){
 			}		
 }
 ?>
-	</form>
-</body>
+	</body>
 </html>
