@@ -1,7 +1,12 @@
 <?
+
 $uploadDir = "tests";
 $name = $_FILES["test"]["name"];
 move_uploaded_file($_FILES["test"]["tmp_name"], "$uploadDir/$name");
+if (array_key_exists("test", $_FILES)) {
+	$_FILES = 0;
+	header("Location:list.php");
+}
 ?>
 <!DOCTYPE html>
 <html>

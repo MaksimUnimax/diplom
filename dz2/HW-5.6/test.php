@@ -1,7 +1,19 @@
 <?
+
 $NumbTest = $_GET["NumbTest"];
 $dir = 'tests';
 $list = array_slice(scandir($dir), 2);
+$NumbTest = $_GET["NumbTest"];
+foreach ($list as $numb => $test) {
+	$number = $numb + 1;
+	$checkNumb[] = $number;
+}
+if(!in_array($NumbTest, $checkNumb)){
+		header("HTTP/1.1 404 Not Found");
+		echo  "404 Not Found";
+		exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -17,12 +29,12 @@ $list = array_slice(scandir($dir), 2);
 	</form>
 <?	
 if (array_key_exists("NumbTest", $_GET)){ 
-	$NumbTest = $_GET["NumbTest"];
 ?>
 	<form action="test.php" method="GET">
 	<?
 	foreach ($list as $numb => $test) {
 	$number = $numb + 1;
+	$checkNumb[] = $number;
 		if ($NumbTest == $number) {
 			$fileName = $list[$numb];
 			$fileJs = file_get_contents("tests/$fileName");
@@ -43,10 +55,13 @@ if (array_key_exists("NumbTest", $_GET)){
 						<input type=radio name=<?="$answer"?> value=<?="$NumbTest"?> >  <?="$qwest"?>  <br/>
 					<?
 					}
-				?>
+				?>	
 					</fieldset>
 				<?
-			}
+			}?>
+			<p>Представтесь.</p>
+			<input type="text" name="name" value="Введите имя"><br/>
+			<?
 		}
 	}echo " <br/> <input type=submit value=Ответить> <br/> <input type=hidden name=chek value=$NumbTest > </form>";
 }
