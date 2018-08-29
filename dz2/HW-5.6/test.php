@@ -4,16 +4,6 @@ $NumbTest = $_GET["NumbTest"];
 $dir = 'tests';
 $list = array_slice(scandir($dir), 2);
 $NumbTest = $_GET["NumbTest"];
-foreach ($list as $numb => $test) {
-	$number = $numb + 1;
-	$checkNumb[] = $number;
-}
-if(!in_array($NumbTest, $checkNumb)){
-		header("HTTP/1.1 404 Not Found");
-		echo  "404 Not Found";
-		exit();
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -27,9 +17,11 @@ if(!in_array($NumbTest, $checkNumb)){
 		<input type="text" name="NumbTest">
 		<input type="submit" value="Отправить">
 	</form>
+
 <?	
 if (array_key_exists("NumbTest", $_GET)){ 
 ?>
+
 	<form action="test.php" method="GET">
 	<?
 	foreach ($list as $numb => $test) {
@@ -80,9 +72,9 @@ if (array_key_exists("chek", $_GET)){
 							array_push($_GET, "$countIf");
 							if ($countIf == $countFor){
 								if ($key == "Array"){
-									echo "<p> $printCount (Верно)</p> ";
+									 echo "<p> $printCount (Верно) Не могу понять как засунуть сюда заголовок, для сертификата</p> "; 
 								}else {
-									echo "<p> $printCount (Неверно)</p> ";
+									echo "<p> $printCount (Неверно) Не могу понять как засунуть сюда заголовок, для сертификата</p> ";
 								}
 							}
 						}$countFor = 0;
