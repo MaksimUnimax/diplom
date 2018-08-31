@@ -4,6 +4,16 @@ $NumbTest = $_GET["NumbTest"];
 $dir = 'tests';
 $list = array_slice(scandir($dir), 2);
 $NumbTest = $_GET["NumbTest"];
+
+foreach ($list as $numb => $test) {
+ 	$number = $numb + 1;
+ 	$checkNumb[] = $number;
+}
+
+if (!in_array($NumbTest, $checkNumb)){
+	header("HTTP/1.1 404 Not Found");
+}	
+
 ?>
 
 <!DOCTYPE html>
