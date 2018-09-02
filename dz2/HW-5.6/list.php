@@ -1,6 +1,6 @@
 <?php
 require("function.php");
-$dir = 'tests';
+$dir = __DIR__ . '/tests';
 $list = GetListTest($dir);
 var_dump($_SESSION["name"]);
 ?>

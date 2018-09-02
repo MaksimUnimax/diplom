@@ -1,6 +1,6 @@
 <?php
 require("function.php");
-$dirLog = "users";
+$dirLog = __DIR__ . '/users';
 if ($_GET["check"] == 1) {
 	session_destroy();
 }

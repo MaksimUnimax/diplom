@@ -1,15 +1,16 @@
 <?php
 require("function.php");
+$countIf = 0;
+$countFor = 0;
 $NumbTest = $_GET["NumbTest"];
-$dir = _DIR_ . 'HW-5.6/tests/';
+$dir = __DIR__ . '/tests';
 $list = GetListTest($dir);
-var_dump($list);
 $QwestCount = 0;
 foreach ($list as $numb => $test) {
  	$number = $numb + 1;
  	$checkNumb[] = $number;
 }
-if (!in_array($NumbTest, $checkNumb) && empty(!$_GET["chek"])){
+if (!in_array($NumbTest, $checkNumb) && $_GET["chek"] != 1){
 	header("HTTP/1.1 404 Not Found");
 }	
 
