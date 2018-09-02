@@ -1,4 +1,4 @@
-<?
+<?php
 require("function.php");
 $dir = 'tests';
 $list = GetListTest($dir);
@@ -11,7 +11,7 @@ var_dump($_SESSION["name"]);
 	<title>Список</title>
 </head>
 <body>
-	<?
+	<?php
 	if(CheckUser()) {
 		?>
 		<form action="list.php" method ="GET">
@@ -20,24 +20,24 @@ var_dump($_SESSION["name"]);
 			<input type="submit">
 		</form>
 
-		<ol><?
+		<ol><?php
 		foreach ($list as $numb => $name) {
 			$NumbTest = $numb + 1;
 			$NumbDel = $_GET["delete"];
 			if ($NumbTest == $NumbDel) {
 				unlink("$dir/$name");
 			}
-				?><li><?=$name?></li><?
+				?><li><?php echo $name?></li><?php
 			}
 		
-		?></ol><?
+		?></ol><?php
 	}else {
 		foreach ($list as $numb => $name) {
 		?>
 			<ul>
-				<li><?=$name?></li>
+				<li><?php echo $name?></li>
 			</ul>
-		<?
+		<?php
 		}
 	}
 	?>

@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 function GetTest($dir,$NumbTest) {
 	$list = array_slice(scandir($dir), 2);

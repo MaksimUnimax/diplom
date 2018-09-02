@@ -1,4 +1,4 @@
-<?
+<?php
 require("function.php");
 $uploadDir = "tests";
 $name = $_FILES["test"]["name"];
@@ -7,7 +7,6 @@ if (array_key_exists("test", $_FILES)) {
 	$_FILES = 0;
 	header("Location:list.php");
 }
-//var_dump($_SESSION["pass"]);
 if (CheckUser()) {
 ?>
 <!DOCTYPE html>
@@ -24,13 +23,13 @@ if (CheckUser()) {
 	<p><a href="index.php?check=1">Выйти</a></p>
 		<p><a href="list.php">К списку тестов</a></p>
 		<p><a href="test.php">Решить тест</a></p>
-	<?}else {
+	<?php }else {
 		header("HTTP/1.1 404 Not Found");
 		?>
 		<p><a href="index.php?check=1">Для добавления тестов введите логин и пароль</a></p>
 		<p><a href="list.php">К списку тестов</a></p>
 		<p><a href="test.php">Решить тест</a></p>
-	<?
+	<?php
 	}
 	?>
 </body>

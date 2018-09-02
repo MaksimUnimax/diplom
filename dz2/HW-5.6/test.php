@@ -1,13 +1,15 @@
-<?
+<?php
 require("function.php");
 $NumbTest = $_GET["NumbTest"];
-$dir = 'tests';
+$dir = _DIR_ . 'HW-5.6/tests/';
 $list = GetListTest($dir);
+var_dump($list);
+$QwestCount = 0;
 foreach ($list as $numb => $test) {
  	$number = $numb + 1;
  	$checkNumb[] = $number;
 }
-if (!in_array($NumbTest, $checkNumb)){
+if (!in_array($NumbTest, $checkNumb) && empty(!$_GET["chek"])){
 	header("HTTP/1.1 404 Not Found");
 }	
 
@@ -25,12 +27,12 @@ if (!in_array($NumbTest, $checkNumb)){
 		<input type="submit" value="Отправить">
 	</form>
 
-<?	
+<?php
 if (array_key_exists("NumbTest", $_GET)){ 
 ?>
 
 	<form action="test.php" method="GET">
-	<?
+	<?php
 	foreach ($list as $numb => $test) {
 	$number = $numb + 1;
 		if ($NumbTest == $number) {
@@ -40,20 +42,17 @@ if (array_key_exists("NumbTest", $_GET)){
 					?>
 					<fieldset>
 					<legend><?="$printCount"?></legend>
-					<?
-					$test = array_slice($test, 1);
+					<?php
 					foreach ($test as $qwest => $answer) { 
-						 $answ = 1;
-						 if(is_array($answer)) {
-						 	$answ = 2;
-						 }
+						if ($QwestCount >= 1) {
 					?>
 						<input type=radio name=<?="$answer"?> value=<?="$NumbTest"?> >  <?="$qwest"?>  <br/>
-					<?
-					}
+					<?php
+						}$QwestCount += 1;
+					}$QwestCount = 0;
 				?>	
 					</fieldset>
-				<?
+				<?php
 			}
 		}
 	}echo " <br/> <input type=submit value=Ответить> <br/> <input type=hidden name=chek value=$NumbTest > </form>";
@@ -71,7 +70,7 @@ if (array_key_exists("chek", $_GET)){
 							$countFor += 1;
 							array_push($_GET, "$countIf");
 							if ($countIf == $countFor){
-								if ($key == "Array"){
+								if ($key == "yes"){
 									 echo "<p> $printCount (Верно) Не могу понять как засунуть сюда заголовок, для сертификата</p> "; 
 								}else {
 									echo "<p> $printCount (Неверно) Не могу понять как засунуть сюда заголовок, для сертификата</p> ";

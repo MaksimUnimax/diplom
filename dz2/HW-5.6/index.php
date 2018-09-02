@@ -1,4 +1,4 @@
-<?
+<?php
 require("function.php");
 $dirLog = "users";
 if ($_GET["check"] == 1) {
