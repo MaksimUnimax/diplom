@@ -1,7 +1,10 @@
 <?
 require("function.php");
 $dirLog = "users";
-if (!empty($_SESSION["login"] and empty($_GET["check"]))) {
+if ($_GET["check"] == 1) {
+	session_destroy();
+}
+if (CheckGuest()) {
 	header("location: list.php");
 	exit();
 }
@@ -17,6 +20,7 @@ if ($_POST["login"] && empty($_POST["pass"])) {
 	$_SESSION["login"] = $_POST["login"];
 	$_SESSION["name"] = $value["name"];
 	header("location: test.php");
+	var_dump($_SESSION["pass"]);
 	exit();
 }
 

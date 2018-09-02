@@ -13,17 +13,24 @@ var_dump($_SESSION["name"]);
 <body>
 	<?
 	if(CheckUser()) {
-		foreach ($list as $numb => $name) {
-			$count = $numb + 1;
-			if (empty($_GET["numb"]) == $numb) {
-				//unlink("$dir/$name");
-			}
 		?>
-			<ul>
-				<li><?=$name?><a href="list.php?numb=<?=$numb?>"> Удалить</a></li>
-			</ul>
-		<?
-		}
+		<form action="list.php" method ="GET">
+			<p>Введите номер теста для удаления</p>
+			<input type="text" name="delete">
+			<input type="submit">
+		</form>
+
+		<ol><?
+		foreach ($list as $numb => $name) {
+			$NumbTest = $numb + 1;
+			$NumbDel = $_GET["delete"];
+			if ($NumbTest == $NumbDel) {
+				unlink("$dir/$name");
+			}
+				?><li><?=$name?></li><?
+			}
+		
+		?></ol><?
 	}else {
 		foreach ($list as $numb => $name) {
 		?>
