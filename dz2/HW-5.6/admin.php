@@ -7,7 +7,7 @@ if (array_key_exists("test", $_FILES)) {
 	$_FILES = 0;
 	header("Location:list.php");
 }
-//var_dump($_SESSION["login"]);
+//var_dump($_SESSION["pass"]);
 if (CheckUser()) {
 ?>
 <!DOCTYPE html>

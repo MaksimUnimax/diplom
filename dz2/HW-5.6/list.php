@@ -1,10 +1,9 @@
 <?
 require("function.php");
 $dir = 'tests';
-$list = array_slice(scandir($dir), 2);
-var_dump($_SESSION["login"]);
+$list = GetListTest($dir);
+var_dump($_SESSION["name"]);
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -13,12 +12,26 @@ var_dump($_SESSION["login"]);
 </head>
 <body>
 	<?
-	foreach ($list as $numb => $name) {
-	?>
-		<ul>
-			<li><?=$name?></li>
-		</ul>
-	<?
+	if(CheckUser()) {
+		foreach ($list as $numb => $name) {
+			$count = $numb + 1;
+			if (empty($_GET["numb"]) == $numb) {
+				//unlink("$dir/$name");
+			}
+		?>
+			<ul>
+				<li><?=$name?><a href="list.php?numb=<?=$numb?>"> Удалить</a></li>
+			</ul>
+		<?
+		}
+	}else {
+		foreach ($list as $numb => $name) {
+		?>
+			<ul>
+				<li><?=$name?></li>
+			</ul>
+		<?
+		}
 	}
 	?>
 	<p><a href="admin.php">Добавить тест</a></p>

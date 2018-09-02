@@ -5,9 +5,7 @@ if (!empty($_SESSION["login"] and empty($_GET["check"]))) {
 	header("location: list.php");
 	exit();
 }
-if ($_GET["check"]) {
-	session_destroy();
-}
+
 if (AssignSession($dirLog)) {
 	$_SESSION["login"] = $_POST["login"];
 	$_SESSION["pass"] = $_POST["pass"];
