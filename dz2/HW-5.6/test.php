@@ -1,14 +1,12 @@
 <?
-
+require("function.php");
 $NumbTest = $_GET["NumbTest"];
 $dir = 'tests';
-$list = array_slice(scandir($dir), 2);
-
+$list = GetListTest($dir);
 foreach ($list as $numb => $test) {
  	$number = $numb + 1;
  	$checkNumb[] = $number;
 }
-
 if (!in_array($NumbTest, $checkNumb)){
 	header("HTTP/1.1 404 Not Found");
 }	
@@ -35,11 +33,8 @@ if (array_key_exists("NumbTest", $_GET)){
 	<?
 	foreach ($list as $numb => $test) {
 	$number = $numb + 1;
-	$checkNumb[] = $number;
 		if ($NumbTest == $number) {
-			$fileName = $list[$numb];
-			$fileJs = file_get_contents("tests/$fileName");
-			$file = json_decode($fileJs,true);
+			$file = GetTest($dir,$NumbTest);
 			foreach ($file as $count => $test) {
 					$printCount = $test["Вот сюда надо написать Вопрос =>"];
 					?>
@@ -59,19 +54,15 @@ if (array_key_exists("NumbTest", $_GET)){
 				?>	
 					</fieldset>
 				<?
-			}?>
-			<p>Представтесь.</p>
-			<input type="text" name="name" value="Введите имя"><br/>
-			<?
+			}
 		}
 	}echo " <br/> <input type=submit value=Ответить> <br/> <input type=hidden name=chek value=$NumbTest > </form>";
 }
 if (array_key_exists("chek", $_GET)){
+			$NumbTest = $_GET["chek"];
+			$file = GetTest($dir,$NumbTest);
 			foreach ($list as $numb => $test) {
 			$number = $numb + 1;
-			$fileName = $list[$numb];
-			$fileJs = file_get_contents("tests/$fileName");
-			$file = json_decode($fileJs,true);
 				foreach ($file as $count => $test) {
 					if($number == $_GET["chek"]) {
 						$countIf += 1;
@@ -92,5 +83,8 @@ if (array_key_exists("chek", $_GET)){
 			}		
 }
 ?>
+<p><a href="admin.php">Добавить тест</a></p>
+<p><a href="list.php">Список тестов</a></p>
+<p><a href="index.php?check=1">Выйти</a></p>
 	</body>
 </html>
