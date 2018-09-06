@@ -1,5 +1,6 @@
 <?php
 require("function.php");
+$_GET["NumbTest"] = 0;
 $countIf = 0;
 $countFor = 0;
 $NumbTest = $_GET["NumbTest"];
