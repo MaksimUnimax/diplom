@@ -12,10 +12,10 @@ if (empty(!$_GET["ISBN"])) {
 	$isbn = $_GET["ISBN"];
 	$result = $search -> getIsbn($dbh,$isbn);
 }elseif(empty(!$_GET["name"])) {
-	$name = $_GET["ISBN"];
+	$name = $_GET["name"];
 	$result = $search -> getName($dbh,$name);
 }elseif(empty(!$_GET["author"])) {
-	$author = $_GET["ISBN"];
+	$author = $_GET["author"];
 	$result = $search -> getAuthor($dbh,$author);
 }
 if(empty($result)) {
