@@ -33,6 +33,19 @@ class Filtr
 		return $resultAuthor;
 	}
 
+	function getAll($dbh,$get)
+	{	
+		foreach ($get as $key => $value) {
+			$isbnAll = $key['ISBN'];
+			$nameAll = $key['name'];
+			$authorAll = $key['author'];
+		}
+		$qwerAll = $dbh->prepare("SELECT `id`, `author`, `year`, `isbn`, `genre` FROM `books` WHERE `author` LIKE '$author'");
+		$qwerAuthor->execute();
+		$resultAuthor = $qwerAuthor->fetchAll(PDO::FETCH_ASSOC);
+		return $resultAuthor;
+	}
+
 }
 
 ?>
