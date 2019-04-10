@@ -131,9 +131,15 @@ body {
 	color: #e7e7e7;
 }
 
-.png_image {
+.png_image_footballer {
 	position: absolute;
 	margin-left: 70px;
+	margin-top: -40px
+}
+
+.png_image_basketballer {
+	position: absolute;
+	margin-left: 10px;
 	margin-top: -40px
 }
 
