@@ -18,6 +18,8 @@ body {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 /*Обертка для цвета фона*/
@@ -76,12 +78,13 @@ body {
 	font-size: 8px;
 	text-align: center;
 	margin-top: 15px;
+
 }
 
 /*кнопка*/
 .button{
 	display: inline-block;
-	padding-top: 15px;
+	padding-top: 10px;
 	width: 280px;
 	height: 30px;
 	border: 1px solid #5e42b0;
@@ -108,7 +111,8 @@ body {
 }
 
 /*для IE*/
-@media screen and (min-width:0\0) { 
+/*@media screen and (min-width:0\0) { 
+
     .button_svg {
 		fill: #fff;
 		width: 20px;
@@ -124,7 +128,7 @@ body {
 		font-weight: bold;
 	}
 
-	.button{
+	.button {
 		display: inline-block;
 		padding-top: 15px;
 		width: 280px;
@@ -135,21 +139,7 @@ body {
 		text-decoration: none;
 		vertical-align: middle;
 	}
-}
-
-/*текст кнопки*/
-.button_text {
-	display: inline-block;
-	text-align: left;
-	margin-left: 5px;
-	color: #fff;
-	font-size: 8px;
-	text-transform: uppercase;
-	font-weight: bold;
-	margin-bottom: 60px;
-	vertical-align: middle;
-}
-}
+}*/
 
 /*Секции с двумя группами элементов внутри*/
 .athlets {
@@ -435,7 +425,8 @@ body {
 
 @media (min-width: 641px) and (max-width: 960px) {
 	.header	{
-		width: 100%;
+		padding-left: 20px;
+		padding-right: 20px;
 		background-image: url("../img/football_1280.jpg");
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
@@ -445,7 +436,7 @@ body {
 
 	/*1 Заголовок*/
 	.header_discription {
-		font-size: 20px;
+		font-size: 34px;
 		margin-top: 170px;
 	}
 
@@ -825,7 +816,6 @@ body {
 
 @media (min-width: 961px) and (max-width: 1920px), (min-width: 1921px){
 	.header	{
-		width: 100%;
 		background-image: url("../img/football_1280.jpg");
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
@@ -835,13 +825,12 @@ body {
 
 /*Заголовок*/
 	.header_discription {
-		font-size: 24px;
+		margin-top: 200px;
+		font-size: 44px;
 	}
 	
 	.discription_wrapper {
 		width: 100%;
-		display: flex;
-		justify-content: center;
 	}
 /*Первая и вторая строки в заголовке*/
 	.first_row_hed_disc {
@@ -1117,8 +1106,7 @@ body {
 		text-transform: uppercase;
 		font-family: 'OpenSans-Bold', sans-serif;
 		letter-spacing: 2px;
-		margin-left: 20px;
-		margin-top: -5px;
+		margin: 0 30px 0 30px;
 		color: #e7e7e7;
 	}
 
@@ -1126,10 +1114,17 @@ body {
 		left: calc(50% + 100px);
 		top: 30%;
 		width: 50%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		padding-top: 230px;
 	}
 
 	.final_sec .text {
 		font-size: 30px;
+		padding: 0 150px 0 150px ;
+		margin-bottom: 150px;
 	}
 
 	/*фиолетовый квадарт*/
@@ -1192,12 +1187,6 @@ body {
 		display: flex;
 	}
 
-/*	К сожалению упустил то что в последнем макете
-	логотип и заголовок стоят в строчку,
-	поэтому не предусмотрел заранее еще одну обертку для них.
-	Сейчас при добавлении этого врапера все ломается, поэтому делаю через 
-	позиционирование*/
-
 	/*первый логотип*/
 	.footer .logo {
 		width: 80px;
@@ -1259,17 +1248,18 @@ body {
 
 @media (min-width: 1921px) {
 	.header	{
-		width: 100%;
 		background-image: url("../img/football_1280.jpg");
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-color: #000000;
 		background-size: cover;
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 
 /*Заголовок*/
 	.header_discription {
-		font-size: 24px;
+		font-size: 50px;
 	}
 	
 	.discription_wrapper {
