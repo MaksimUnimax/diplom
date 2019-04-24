@@ -111,35 +111,53 @@ body {
 }
 
 /*для IE*/
-/*@media screen and (min-width:0\0) { 
-
-    .button_svg {
-		fill: #fff;
-		width: 20px;
-	}
-
-	.button_text {
-		display: inline-block;
-		text-align: left;
-		margin-left: 5px;
-		color: #fff;
-		font-size: 8px;
-		text-transform: uppercase;
-		font-weight: bold;
-	}
-
-	.button {
-		display: inline-block;
-		padding-top: 15px;
+/*сделал через vertical-align: middle; но не получается*/
+@media screen and (min-width:0\0) { 
+	.button{
 		width: 280px;
 		height: 30px;
 		border: 1px solid #5e42b0;
 		border-radius: 50px;
 		background-color: #5e42b0;
 		text-decoration: none;
+	}
+
+    .button_svg {
+		fill: #fff;
+		width: 20px;
 		vertical-align: middle;
 	}
-}*/
+
+	.button_text {
+		display: inline-block;
+		color: #fff;
+		font-size: 8px;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+
+	.final_sec .number {
+		color: #fff;
+		margin: -15px 0px 0px -10px;
+	}
+
+	.footer_logo_wrapper {
+		display: flex;
+		width: 70px;
+		height: 70px;
+		border: 1px solid #7050cc;
+		border-radius: 20px;
+		background-color: #7050cc;
+		z-index: 1;
+		margin-top: 100px;
+}
+
+	.footer .logo {
+		width: 40px;
+		z-index: 1;
+		vertical-align: middle;
+		text-align: center;
+}
 
 /*Секции с двумя группами элементов внутри*/
 .athlets {
@@ -329,14 +347,6 @@ body {
 	background-color: #8f7bc8;
 }
 
-/*IE*/
-@media screen and (min-width:0\0) { 
-	.final_sec .number {
-	color: #fff;
-	margin: -15px 0px 0px -10px;
-	}
-}
-
 /*футер*/
 .footer	{
 	position: relative;
@@ -376,15 +386,6 @@ body {
 	background-color: #7050cc;
 	z-index: 1;
 	margin-top: 100px;
-}
-
-/*IE*/
-	@media screen and (min-width:0\0) { 
-		.footer .logo {
-		width: 40px;
-		z-index: 1;
-		margin: -40px 0 0 15px;
-	}
 }
 
 /*второй логотип*/
@@ -495,14 +496,6 @@ body {
 		font-weight: bold;
 	}
 
-	/*для IE*/
-	@media screen and (min-width:0\0) { 
-	  .button_svg {
-			fill: #fff;
-			width: 40px;
-			/*margin-bottom: 50px;*/
-		}	
-	}
 
 	/*1 Секции с двумя группами элементов внутри*/
 	.athlets {
@@ -814,7 +807,7 @@ body {
 	}
 }
 
-@media (min-width: 961px) and (max-width: 1920px), (min-width: 1921px){
+@media (min-width: 961px) and (max-width: 1920px){
 	.header	{
 		background-image: url("../img/football_1280.jpg");
 		background-repeat: no-repeat;
@@ -830,11 +823,11 @@ body {
 	}
 	
 	.discription_wrapper {
-		width: 100%;
+
 	}
 /*Первая и вторая строки в заголовке*/
 	.first_row_hed_disc {
-		margin-left: 80px;
+
 	}
 
 	.second_row_hed_disc {
@@ -891,7 +884,7 @@ body {
 		/*1 Секции с двумя группами элементов внутри*/
 	.athlets {
 		padding-top: 15px;
-		position: relative;	
+		position: relative;
 	}
 
 	.players {
@@ -913,8 +906,6 @@ body {
 
 	/*1 Заголовок*/
 	.headline h2{	
-		/*position: absolute;
-		right: 2px;*/
 		font-size: 75px;
 		text-transform: uppercase;
 		font-family: 'OpenSans-Bold', sans-serif;
@@ -933,7 +924,6 @@ body {
 	.png_image_footballer {
 		position: absolute;
 		margin-top: -50px;
-		/*margin-left: 990px;*/
 	}
 
 	/*1 Картинка баскетбл*/
@@ -985,7 +975,6 @@ body {
 	/*1 Заголовок в контейнере с текстом*/
 	.athlets .text_content_headline_wrapper {
 		position: relative;
-		/*argin-left: 995px;*/
 	}
 
 	/*1 номер контейнера, с подчеркиванием*/
@@ -1016,6 +1005,11 @@ body {
 	.athlets .text_content {
 		display: flex;
 		justify-content: flex-end;
+		padding-right: 50px;
+	}
+
+	.players .text_content {
+		padding-left: 50px;
 	}
 	
 	.athlets p {
@@ -1263,7 +1257,6 @@ body {
 	}
 	
 	.discription_wrapper {
-		width: 100%;
 		display: flex;
 		justify-content: center;
 	}
